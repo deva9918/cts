@@ -1,0 +1,23 @@
+class box
+{
+	double slen;
+	double sbre;
+	double shei;
+	void boxset(double len,double bre,double hei)
+	{
+	slen=len;
+	sbre=bre;
+	shei=hei;
+	}
+	double boxget()
+	{
+	System.out.print("volume of cube is="+slen*sbre*shei);
+	}
+	public static void main(String ar[])
+		{
+		box b=new box();
+		b.boxset(23.1,23.4,56);
+		b.boxget();
+		}
+	}
+}
