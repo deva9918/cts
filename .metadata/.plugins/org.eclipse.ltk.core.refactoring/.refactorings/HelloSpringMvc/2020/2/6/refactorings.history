@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;HelloSpringMvc/WebContent/WEB-INF/NewFile.xml&apos; to &apos;spring-servlet.xml&apos;" description="Rename resource &apos;NewFile.xml&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="WebContent/WEB-INF/NewFile.xml" name="spring-servlet.xml" stamp="1581056719087" updateReferences="true"/>
+</session>

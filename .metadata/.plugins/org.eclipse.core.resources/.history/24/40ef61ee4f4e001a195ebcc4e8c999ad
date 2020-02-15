@@ -1,0 +1,5 @@
+package jbr.controller;
+
+public class RegistrationController {
+
+}
