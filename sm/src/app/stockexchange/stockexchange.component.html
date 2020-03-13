@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+    body {
+   
+     color: #fff;
+   
+     background-image: url("https://images.pexels.com/photos/2078774/pexels-photo-2078774.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+   
+     background-repeat: no-repeat;
+   
+     background-size: 1400px 700px;
+   
+    }
+    .d{
+      background-color: black;
+    }
+    *{
+      color:antiquewhite
+    }
+
+</style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <button type="button" class="btn btn-info"><a routerLink="/addstockexchange">Add stockexchange</a></button>&nbsp;&nbsp;&nbsp;
+
+
+ 
+
+  <div class="container">
+    <h2>StockExchange-Details</h2>
+    <div class="d">
+    <table class="table">
+      <thead class="thead">
+        <tr>
+
+
+          <th><b>seid</b></th>
+
+          <th><b>brief</b></th>
+
+          <th><b>contact_address</b></th>
+          <th><b>remarks</b></th>
+
+          <th><b>stock_exchange</b></th>
+          <th></th>
+          <th></th>
+
+
+        </tr>
+      </thead>
+            <tbody>
+
+        <tr *ngFor="let user of stockexchangeList ">
+
+
+
+          <td>{{user.seid}}</td>
+          <td>{{user.brief}}</td>
+          <td>{{user.contact_address}}</td>
+          <td>{{user.remarks}}</td>
+          <td>{{user.stock_exchange}}</td>
+          <td><button (click)="deleteStockExchange(user)" class='btn btn-danger'><i class="fa fa-futboll-0">Delete</i></button> &nbsp;
+
+            <button (click)="updateStockExchange(user)" class='btn btn-info'
+       
+            data-toggle="modal" data-target="#myModal">Update</button>
+       
+           </td>
+
+
+        </tr>
+      </tbody>
+
+    </table>
+  </div>
+  </div>
+  <button type="button" class="btn btn-info "><a routerLink='/admindata'>Back</a></button><br><br><br><br><br><br><br><br><br>
+</body>
+
+</html>

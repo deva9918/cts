@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <style>
+
+  body {
+
+   font-family: Arial, Helvetica, sans-serif;
+
+   color: rgb(8, 8, 8);
+
+
+
+   background-image: url("https://gentle-response.com/wp-content/uploads/2017/12/training-classroom.png");
+
+
+
+   background-repeat: no-repeat;
+
+
+
+   background-size: 1600px 1600px;
+
+  }
+
+
+
+  * {
+
+   box-sizing: border-box;
+
+  }
+
+
+
+  /* Add padding to containers */
+
+  .container {
+
+   padding: 16px;
+
+
+
+   background-color: white;
+
+  }
+
+
+
+  .center {
+
+ display: flex;
+
+ height: 300px;
+
+ background-color: #ff1124;
+
+ justify-content: center;
+
+}
+
+  /* Full-width input fields */
+
+  input[type=text],
+
+  input[type=password] {
+
+   width: 40%;
+
+   padding: 15px;
+
+   margin: 5px 0 22px 0;
+
+   display: inline-block;
+
+   border: none;
+
+   background: #f1f1f1;
+
+  }
+
+
+
+  input[type=text]:focus,
+
+  input[type=password]:focus {
+
+   background-color: #ddd;
+
+   outline: none;
+
+  }
+
+
+
+  /* Overwrite default styles of hr */
+
+  hr {
+
+   border: 1px solid #f1f1f1;
+
+   margin-bottom: 25px;
+
+  }
+
+
+
+  /* Set a style for the submit button */
+
+  .registerbtn {
+
+   background-color: #4CAF50;
+
+   color: white;
+
+   padding: 16px 20px;
+
+   margin: 8px 0;
+
+   border: none;
+
+   cursor: pointer;
+
+   width: 10%;
+
+   opacity: 0.9;
+
+  }
+
+
+
+  .registerbtn:hover {
+
+   opacity: 1;
+
+  }
+
+
+
+  /* Add a blue text color to links */
+
+  a {
+
+   color: dodgerblue;
+
+  }
+
+
+
+  /* Set a grey background color and center the text of the "sign in" section */
+
+  .signin {
+
+   background-color: #f1f1f1;
+
+   text-align: center;
+
+  }
+
+ </style>
+
+</head>
+
+<body>
+
+ <div class="class" style="text-align:center;">
+
+
+
+<div class="signup-form">
+
+
+
+ <div [hidden]="submitted" style="width: 400px;">
+
+
+
+ <form [formGroup]="ipodetailssaveform" #saveIpodetails1 (ngSubmit)="saveIpodetails(saveIpodetails1)">
+
+   <h2><i>add ipodetails</i></h2>
+
+
+
+ <p>fill the detailas to add ipodetails</p>
+
+
+
+ <hr>
+ 
+ <div class="form-group">
+
+
+
+    <div class="input-group">
+  
+  
+  
+    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+  
+  
+  
+    <input type="number" class="form-control" formControlName="ipoid" placeholder="ipoid" required="required">
+  
+  
+  
+    <div class="alert alert-danger" *ngIf = "(Ipoid.touched) && (Ipoid.invalid)"
+  
+  
+  
+       style="margin-top: 5px;">
+  
+  
+  
+       <span *ngIf="Ipoid.errors.required">Ipoid is Required</span>
+  
+  
+  
+        <span *ngIf = "Ipoid.errors.minlength">
+  
+  
+  
+         MinLength Error
+  
+  
+  
+        </span>
+  
+  
+  
+       </div>
+  
+  
+  
+    </div>
+  
+  
+  
+   </div>
+ 
+
+
+   <div class="form-group">
+
+
+
+  <div class="input-group">
+
+
+
+  <span class="input-group-addon"><i class="fa fa-user"></i></span>
+
+
+
+  <input type="text" class="form-control" formControlName="companyname" placeholder="companyname" required="required">
+
+
+
+  <div class="alert alert-danger" *ngIf = "(CompanyName.touched) && (CompanyName.invalid)"
+
+
+
+     style="margin-top: 5px;">
+
+
+
+     <span *ngIf="CompanyName.errors.required">CompanyName is Required</span>
+
+
+
+      <span *ngIf = "ComoanyName.errors.minlength">
+
+
+
+       MinLength Error
+
+
+
+      </span>
+
+
+
+     </div>
+
+
+
+  </div>
+
+
+
+ </div>
+ <div class="form-group">
+
+
+
+    <div class="input-group">
+ 
+ 
+ 
+    <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+ 
+ 
+ 
+    <input type="number" class="form-control" formControlName="opendatetime" placeholder="opendatetime" required="required">
+ 
+ 
+ 
+    <div class="alert alert-danger" *ngIf = "(Opendatetime.touched)&&(Opendatetime.invalid)"
+ 
+ 
+ 
+       style="margin-top: 5px;">
+ 
+ 
+ 
+     <span *ngIf="Opendatetime.errors.required">Oepndatetime is Required</span>
+ 
+ 
+ 
+ 
+ 
+    </div>
+ 
+ 
+ 
+    </div>
+ 
+ 
+ 
+    </div>
+    <div class="form-group">
+
+
+
+        <div class="input-group">
+     
+     
+     
+        <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+     
+     
+     
+        <input type="number" class="form-control" formControlName="pricepershare" placeholder="pricepershare" required="required">
+     
+     
+     
+        <div class="alert alert-danger" *ngIf = "(Pricepershare.touched)&&(Pricepershare.invalid)"
+     
+     
+     
+           style="margin-top: 5px;">
+     
+     
+     
+         <span *ngIf="Pricepershare.errors.required">ipoid is Required</span>
+     
+     
+     
+     
+     
+        </div>
+     
+     
+     
+        </div>
+     
+     
+     
+        </div>
+    
+
+
+
+
+   <div class="form-group">
+
+
+
+   <div class="input-group">
+
+
+
+   <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+
+
+
+   <input type="text" class="form-control" formControlName="stockexchange" placeholder="stockexchange " required="required">
+
+
+
+   <div class="alert alert-danger" *ngIf = "(Stockexchange.touched)&&(Stockexchange.invalid)"
+
+
+
+      style="margin-top: 5px;">
+
+
+
+    <span *ngIf="Stockexchange.errors.required">Stockexchange is Required</span>
+
+
+
+   </div>
+
+
+
+   </div>
+
+
+
+   </div>
+
+
+
+    <div class="form-group">
+
+
+
+        <div class="input-group">
+     
+     
+     
+        <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+     
+     
+     
+        <input type="number" class="form-control" formControlName="totalnoofshares" placeholder="totalnoofshares" required="required">
+     
+     
+     
+        <div class="alert alert-danger" *ngIf = "(Totalnoofshares.touched)&&(Totalnoofshares.invalid)"
+     
+     
+     
+           style="margin-top: 5px;">
+     
+     
+     
+         <span *ngIf="Totalnoofshares.errors.required">Totalnoofshares is Required</span>
+     
+     
+     
+     
+     
+        </div>
+     
+     
+     
+        </div>
+     
+     
+     
+        </div>
+        
+ 
+                <div class="form-group">
+
+
+
+                    <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+                  
+                  
+                  
+                   </div>
+                  
+                  
+                  
+                   <div class="form-group">
+                  
+                  
+                  
+                    <button type="submit" class="btn btn-primary btn-lg">Add</button>
+                  
+                  
+                  
+                   </div>
+                  
+                    </form>
+                  
+                  
+                  
+                  
+                   </div>
+                  
+                  
+                  
+                   </div>
+                  
+                  
+                  
+<div [hidden]="!submitted">
+                  
+ <h4>company Added Successfully</h4>
+                  
+ <button (click)="companysaveform()"><a routerLink="/ManageCopmpany"></a></button>
+                  
+ </div>
+                  
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+  <br>
+
+ </body>
+
+</html>

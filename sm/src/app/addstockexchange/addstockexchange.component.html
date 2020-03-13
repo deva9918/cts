@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <style>
+
+  body {
+
+   font-family: Arial, Helvetica, sans-serif;
+
+   color: rgb(8, 8, 8);
+
+
+
+   background-image: url("https://gentle-response.com/wp-content/uploads/2017/12/training-classroom.png");
+
+
+
+   background-repeat: no-repeat;
+
+
+
+   background-size: 1600px 1600px;
+
+  }
+
+
+
+  * {
+
+   box-sizing: border-box;
+
+  }
+
+
+
+  /* Add padding to containers */
+
+  .container {
+
+   padding: 16px;
+
+
+
+   background-color: white;
+
+  }
+
+
+
+  .center {
+
+ display: flex;
+
+ height: 300px;
+
+ background-color: #ff1124;
+
+ justify-content: center;
+
+}
+
+  /* Full-width input fields */
+
+  input[type=text],
+
+  input[type=password] {
+
+   width: 40%;
+
+   padding: 15px;
+
+   margin: 5px 0 22px 0;
+
+   display: inline-block;
+
+   border: none;
+
+   background: #f1f1f1;
+
+  }
+
+
+
+  input[type=text]:focus,
+
+  input[type=password]:focus {
+
+   background-color: #ddd;
+
+   outline: none;
+
+  }
+
+
+
+  /* Overwrite default styles of hr */
+
+  hr {
+
+   border: 1px solid #f1f1f1;
+
+   margin-bottom: 25px;
+
+  }
+
+
+
+  /* Set a style for the submit button */
+
+  .registerbtn {
+
+   background-color: #4CAF50;
+
+   color: white;
+
+   padding: 16px 20px;
+
+   margin: 8px 0;
+
+   border: none;
+
+   cursor: pointer;
+
+   width: 10%;
+
+   opacity: 0.9;
+
+  }
+
+
+
+  .registerbtn:hover {
+
+   opacity: 1;
+
+  }
+
+
+
+  /* Add a blue text color to links */
+
+  a {
+
+   color: dodgerblue;
+
+  }
+
+
+
+  /* Set a grey background color and center the text of the "sign in" section */
+
+  .signin {
+
+   background-color: #f1f1f1;
+
+   text-align: center;
+
+  }
+
+ </style>
+
+</head>
+
+<body>
+
+ <div class="class" style="text-align:center;">
+
+
+
+<div class="signup-form">
+
+
+
+ <div [hidden]="submitted" style="width: 400px;">
+
+
+
+ <form [formGroup]="stockexchangesaveform" #saveStockExchange1 (ngSubmit)="saveStockExchange(saveStockExchange1)">
+
+   <h2><i>add sectors</i></h2>
+
+
+
+ <p>fill the detailas to add sector</p>
+
+
++
+ <hr>
+ 
+ <div class="form-group">
+
+
+
+    <div class="input-group">
+  
+  
+  
+    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+  
+  
+  
+    <input type="number" class="form-control" formControlName="seid" placeholder="seid" required="required">
+  
+  
+  
+    <div class="alert alert-danger" *ngIf = "(Seid.touched) && (Seid.invalid)"
+  
+  
+  
+       style="margin-top: 5px;">
+  
+  
+  
+       <span *ngIf="Seid.errors.required">Seid is Required</span>
+  
+  
+  
+        <span *ngIf = "Seid.errors.minlength">
+  
+  
+  
+         MinLength Error
+  
+  
+  
+        </span>
+  
+  
+  
+       </div>
+  
+  
+  
+    </div>
+  
+  
+  
+   </div>
+ 
+
+
+
+
+   <div class="form-group">
+
+
+
+   <div class="input-group">
+
+
+
+   <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+
+
+
+   <input type="text" class="form-control" formControlName="brief" placeholder="brief " required="required">
+
+
+
+   <div class="alert alert-danger" *ngIf = "(Brief.touched)&&(Brief.invalid)"
+
+
+
+      style="margin-top: 5px;">
+
+
+
+    <span *ngIf="Brief.errors.required">Brief is Required</span>
+
+
+
+   </div>
+
+
+
+   </div>
+
+
+
+   </div>
+   
+   <div class="form-group">
+
+
+
+    <div class="input-group">
+  
+  
+  
+    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+  
+  
+  
+    <input type="text" class="form-control" formControlName="contact_address" placeholder="contact_address" required="required">
+  
+  
+  
+    <div class="alert alert-danger" *ngIf = "(Contact_address.touched) && (Contact_address.invalid)"
+  
+  
+  
+       style="margin-top: 5px;">
+  
+  
+  
+       <span *ngIf="Contact_address.errors.required">Contact_address is Required</span>
+  
+  
+  
+        <span *ngIf = "Contact_address.errors.minlength">
+  
+  
+  
+         MinLength Error
+  
+  
+  
+        </span>
+  
+  
+  
+       </div>
+  
+  
+  
+    </div>
+  
+  
+  
+   </div>
+   
+   <div class="form-group">
+
+
+
+    <div class="input-group">
+  
+  
+  
+    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+  
+  
+  
+    <input type="text" class="form-control" formControlName="remarks" placeholder="remarks" required="required">
+  
+  
+  
+    <div class="alert alert-danger" *ngIf = "(Remarks.touched) && (Remarks.invalid)"
+  
+  
+  
+       style="margin-top: 5px;">
+  
+  
+  
+       <span *ngIf="Remarks.errors.required">Remarks is Required</span>
+  
+  
+  
+        <span *ngIf = "Remarks.errors.minlength">
+  
+  
+  
+         MinLength Error
+  
+  
+  
+        </span>
+  
+  
+  
+       </div>
+  
+  
+  
+    </div>
+  
+  
+  
+   </div>
+   
+   <div class="form-group">
+
+
+
+    <div class="input-group">
+  
+  
+  
+    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+  
+  
+  
+    <input type="text" class="form-control" formControlName="stock_exchange" placeholder="stock_exchange" required="required">
+  
+  
+  
+    <div class="alert alert-danger" *ngIf = "(Stock_exchange.touched) && (Stock_exchange.invalid)"
+  
+  
+  
+       style="margin-top: 5px;">
+  
+  
+  
+       <span *ngIf="Stock_exchange.errors.required">Stock_exchange is Required</span>
+  
+  
+  
+        <span *ngIf = "Stock_exchange.errors.minlength">
+  
+  
+  
+         MinLength Error
+  
+  
+  
+        </span>
+  
+  
+  
+       </div>
+  
+  
+  
+    </div>
+  
+  
+  
+   </div>
+   
+   
+   
+
+
+
+    
+                <div class="form-group">
+
+
+
+                    <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+                  
+                  
+                  
+                   </div>
+                  
+                  
+                  
+                   <div class="form-group">
+                  
+                  
+                  
+                    <button type="submit" class="btn btn-primary btn-lg">Add</button>
+                  
+                  
+                  
+                   </div>
+                  
+                    </form>
+                  
+                  
+                  
+                  
+                   </div>
+                  
+                  
+                  
+                   </div>
+                  
+                  
+                  
+<div [hidden]="!submitted">
+                  
+ <h4>company Added Successfully</h4>
+                  
+ <button (click)="companysaveform()"><a routerLink="/sector"></a></button>
+                  
+ </div>
+                  
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+
+ </body>
+
+</html>

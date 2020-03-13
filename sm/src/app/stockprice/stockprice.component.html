@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <style>
+
+    body {
+   
+     color: #fff;
+   
+     background-image: url("https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500");
+     background-repeat: no-repeat;
+   
+     background-size: 1400px 700px;
+   
+    }
+    .hover
+    {
+    background-color:black
+    }
+    *{
+      color:antiquewhite
+    }
+</style>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+<body>
+
+  <button type="button" class="btn btn-info"><a routerLink="/addstockprice">Add stockprice</a></button>&nbsp;&nbsp;&nbsp;
+
+
+  
+  <div class="container">
+    <h2>StockPrice-Details</h2>
+    <div class="hover">
+    <table class="table ">
+
+      <thead class="thead">
+        <tr>
+
+
+          <th><b>companyname</b></th>
+          <th><b>stockexchange</b></th>
+          <th><b>currentprice</b></th>
+          <th><b>date</b></th>
+          <th><b>time</b></th>
+          <th>uploadfile</th>
+          <th></th>
+          <th></th>
+          
+
+
+
+        </tr>
+      </thead>
+            <tbody>
+
+        <tr *ngFor="let user of stockpriceList ">
+
+        
+
+          <td>{{user.companyname}}</td>
+          <td>{{user.stockexchange}}</td>
+          <td>{{user.currentprice}}</td>
+          <td>{{user.date}}</td>
+          <td>{{user.time}}</td>
+          <td>{{user.uploadfile}}</td>
+          <td><button (click)="deleteStockPrice(user)" class='btn btn-danger'><i class="fa fa-futboll-0">Delete</i></button> &nbsp;
+
+            <button (click)="updateStockPrice(user)" class='btn btn-info' >Update</button>
+       
+           </td>
+
+          
+        </tr>
+      </tbody>
+
+    </table>
+
+  </div>
+  </div>
+  <button type="button" class="btn btn-info "><a routerLink='/admindata'>Back</a></button>
+  <br><br><br><br><br><br><br><br><br><br>
+
+</body>
+
+</html>

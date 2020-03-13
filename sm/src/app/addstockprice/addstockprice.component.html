@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+
+<html>
+
+
+
+<head>
+
+ <meta name="viewport" content="width=device-width, initial-scale=1">
+
+ <style>
+
+  body {
+
+   font-family: Arial, Helvetica, sans-serif;
+
+   color: rgb(8, 8, 8);
+
+
+
+   background-image: url("https://gentle-response.com/wp-content/uploads/2017/12/training-classroom.png");
+
+
+
+   background-repeat: no-repeat;
+
+
+
+   background-size: 1600px 1600px;
+
+  }
+
+
+
+  * {
+
+   box-sizing: border-box;
+
+  }
+
+
+
+  /* Add padding to containers */
+
+  .container {
+
+   padding: 16px;
+
+
+
+   background-color: white;
+
+  }
+
+
+
+  .center {
+
+ display: flex;
+
+ height: 300px;
+
+ background-color: #ff1124;
+
+ justify-content: center;
+
+}
+
+  /* Full-width input fields */
+
+  input[type=text],
+
+  input[type=password] {
+
+   width: 40%;
+
+   padding: 15px;
+
+   margin: 5px 0 22px 0;
+
+   display: inline-block;
+
+   border: none;
+
+   background: #f1f1f1;
+
+  }
+
+
+
+  input[type=text]:focus,
+
+  input[type=password]:focus {
+
+   background-color: #ddd;
+
+   outline: none;
+
+  }
+
+
+
+  /* Overwrite default styles of hr */
+
+  hr {
+
+   border: 1px solid #f1f1f1;
+
+   margin-bottom: 25px;
+
+  }
+
+
+
+  /* Set a style for the submit button */
+
+  .registerbtn {
+
+   background-color: #4CAF50;
+
+   color: white;
+
+   padding: 16px 20px;
+
+   margin: 8px 0;
+
+   border: none;
+
+   cursor: pointer;
+
+   width: 10%;
+
+   opacity: 0.9;
+
+  }
+
+
+
+  .registerbtn:hover {
+
+   opacity: 1;
+
+  }
+
+
+
+  /* Add a blue text color to links */
+
+  a {
+
+   color: dodgerblue;
+
+  }
+
+
+
+  /* Set a grey background color and center the text of the "sign in" section */
+
+  .signin {
+
+   background-color: #f1f1f1;
+
+   text-align: center;
+
+  }
+
+ </style>
+
+</head>
+
+<body>
+
+ <div class="class" style="text-align:center;">
+
+
+
+<div class="signup-form">
+
+
+
+ <div [hidden]="submitted" style="width: 400px;">
+
+
+
+ <form [formGroup]="stockpricesaveform" #saveStockprice1 (ngSubmit)="saveStockprice(saveStockprice1)">
+
+   <h2><i>add sectors</i></h2>
+
+
+
+ <p>fill the detailas to add sector</p>
+
+
+
+ <hr>
+ 
+ <div class="form-group">
+
+
+
+    <div class="input-group">
+  
+  
+  
+    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+  
+  
+  
+    <input type="text" class="form-control" formControlName="companyname" placeholder="companyname" required="required">
+  
+  
+  
+    <div class="alert alert-danger" *ngIf = "(Companyname.touched) && (Companyname.invalid)"
+  
+  
+  
+       style="margin-top: 5px;">
+  
+  
+  
+       <span *ngIf="Companyname.errors.required">Companyname is Required</span>
+  
+  
+  
+        <span *ngIf = "Companyname.errors.minlength">
+  
+  
+  
+         MinLength Error
+  
+  
+  
+        </span>
+  
+  
+  
+       </div>
+  
+  
+  
+    </div>
+  
+  
+  
+   </div>
+ 
+
+
+
+
+   <div class="form-group">
+
+
+
+   <div class="input-group">
+
+
+
+   <span class="input-group-addon"><i class="fa fa-paper-plane"></i></span>
+
+
+
+   <input type="text" class="form-control" formControlName="stockexchange" placeholder="stockexchange " required="required">
+
+
+
+   <div class="alert alert-danger" *ngIf = "(Stockexchange.touched)&&(Stockexchange.invalid)"
+
+
+
+      style="margin-top: 5px;">
+
+
+
+    <span *ngIf="Stockexchange.errors.required">Stockexchange is Required</span>
+
+
+
+   </div>
+
+
+
+   </div>
+
+
+
+   </div>
+   
+   <div class="form-group">
+
+
+
+    <div class="input-group">
+  
+  
+  
+    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+  
+  
+  
+    <input type="number" class="form-control" formControlName="currentprice" placeholder="currentprice" required="required">
+  
+  
+  
+    <div class="alert alert-danger" *ngIf = "(Currentprice.touched) && (Currentprice.invalid)"
+  
+  
+  
+       style="margin-top: 5px;">
+  
+  
+  
+       <span *ngIf="Currentprice.errors.required">Currentprice is Required</span>
+  
+  
+  
+        <span *ngIf = "Currentprice.errors.minlength">
+  
+  
+  
+         MinLength Error
+  
+  
+  
+        </span>
+  
+  
+  
+       </div>
+  
+  
+  
+    </div>
+  
+  
+  
+   </div>
+   
+   <div class="form-group">
+
+
+
+    <div class="input-group">
+  
+  
+  
+    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+  
+  
+  
+    <input type="text" class="form-control" formControlName="date" placeholder="date" required="required">
+  
+  
+  
+    <div class="alert alert-danger" *ngIf = "(Date.touched) && (Date.invalid)"
+  
+  
+  
+       style="margin-top: 5px;">
+  
+  
+  
+       <span *ngIf="Date.errors.required">Date is Required</span>
+  
+  
+  
+        <span *ngIf = "Date.errors.minlength">
+  
+  
+  
+         MinLength Error
+  
+  
+  
+        </span>
+  
+  
+  
+       </div>
+  
+  
+  
+    </div>
+    <script type="text/javascript">
+
+      $(function () {
+
+        $('#datetimepicker1').datetimepicker();
+
+      });
+
+    </script>
+  
+  
+  
+   </div>
+   
+   <div class="form-group">
+
+
+
+    <div class="input-group">
+  
+  
+  
+    <span class="input-group-addon"><i class="fa fa-user"></i></span>
+  
+  
+  
+    <input type="text" class="form-control" formControlName="time" placeholder="time" required="required">
+  
+  
+  
+    <div class="alert alert-danger" *ngIf = "(Time.touched) && (Time.invalid)"
+  
+  
+  
+       style="margin-top: 5px;">
+  
+  
+  
+       <span *ngIf="Time.errors.required">Time is Required</span>
+  
+  
+  
+        <span *ngIf = "Time.errors.minlength">
+  
+  
+  
+         MinLength Error
+  
+  
+  
+        </span>
+  
+  
+  
+       </div>
+  
+  
+  
+    </div>
+  
+  
+  
+   </div>
+   <div class="form-group">
+
+
+
+      <div class="input-group">
+
+         <label for="uploadfile">Uploadfile</label>
+
+         <input formControlName="uploadfile" class="form-control" type="file"
+            (change)="selectFile($event)">
+
+      </div>
+
+   </div>
+
+   
+   
+   
+
+
+
+    
+                <div class="form-group">
+
+
+
+                    <label class="checkbox-inline"><input type="checkbox" required="required"> I accept the <a href="#">Terms of Use</a> &amp; <a href="#">Privacy Policy</a></label>
+                  
+                  
+                  
+                   </div>
+                  
+                  
+                  
+                   <div class="form-group">
+                  
+                  
+                  
+                    <button type="submit" class="btn btn-primary btn-lg">Add</button>
+                  
+                  
+                  
+                   </div>
+                  
+                    </form>
+                  
+                  
+                  
+                  
+                   </div>
+                  
+                  
+                  
+                   </div>
+                  
+                  
+                  
+<div [hidden]="!submitted">
+                  
+ <h4>company Added Successfully</h4>
+                  
+ <button (click)="companysaveform()"><a routerLink="/sector"></a></button>
+                  
+ </div>
+                  
+  </div>
+  <br>
+  <br>
+  <br>
+  <br>
+
+ </body>
+
+</html>

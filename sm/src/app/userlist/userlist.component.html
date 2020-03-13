@@ -1,0 +1,79 @@
+<div class="panel panel-default">
+
+  <div class="panel-body">
+ 
+     <table class="table table-hover table-sm" >
+ 
+ 
+ 
+   
+ 
+    <thead class="thead-light">
+ 
+       <tr>
+ 
+       <th>UserName</th>
+ 
+       <th>password</th>
+ 
+       <th>confirmed</th>
+ 
+       <th>Firstname</th>
+ 
+       <th>Lastname</th>
+ 
+       <th>Email</th>
+       <th>Usertype</th>
+ 
+       <th>Phone</th>
+ 
+       <th>gender</th>
+ 
+       <th>Address</th>
+       <th> Profile Image</th>
+       <th></th>
+ 
+     </tr>
+ 
+      </thead>
+ 
+     <tbody>
+ 
+      <tr *ngFor="let user of userList ">
+ 
+        <td>{{user.username}}</td>
+ 
+        <td>{{user.password}}</td>
+ 
+        <td>{{user.confirmed}}</td>
+ 
+        <td>{{user.firstname}}</td>
+ 
+        <td>{{user.lastname}}</td>
+ 
+        <td>{{user.email}}</td>
+        <td>{{user.usertype}}</td>
+ 
+       <td>{{user.phone}}</td>
+ 
+      <td>{{user.gender}}</td>
+ 
+        <td>{{user.address}}</td>
+        <td>{{user.profileimage}}</td>
+
+        <td><button (click)="deleteUser(user)" class='btn btn-danger'>Delete</button></td>
+
+        <td><button (click)="updateUser(user)" class='btn btn-info' >Update</button>
+     
+         </td>
+       </tr>
+ 
+    </tbody><br>
+ 
+     </table>
+ 
+ 
+ 
+   </div>
+ 
+  </div> 
